@@ -6,7 +6,8 @@ const spawnChildProcess = async (args) => {
 
   const src = path.resolve(process.cwd(), "src", "cp", "files", "script.js");
 
-  fork(src, process.argv);
+  fork(src, args);
 };
 
-spawnChildProcess();
+// Put your arguments in function call to test this functionality
+spawnChildProcess(['someArgument1', 'someArgument2']);
