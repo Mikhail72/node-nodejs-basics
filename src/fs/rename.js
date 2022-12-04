@@ -9,11 +9,18 @@ import path from "path";
 const rename = async () => {
   // Write your code here
 
-  const dir = path.resolve(process.cwd(), 'src', 'fs', 'files');
+  const dir = path.resolve(process.cwd(), "src", "fs", "files");
+  const destFile = path.resolve(dir, "properFilename.md");
+
+  await fs.access(destFile).then(() => {
+    throw new Error("FS operation failed");
+  }).catch(() => Promise.resolve());
 
   try {
-    // await fs.access('');
-    await fs.rename(path.resolve(dir, 'wrongFilename.txt'), path.resolve(dir, 'properFilename.md'));
+    await fs.rename(
+      path.resolve(dir, "wrongFilename.txt"),
+      path.resolve(destFile)
+    );
   } catch (error) {
     throw new Error("FS operation failed");
   }
