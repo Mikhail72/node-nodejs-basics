@@ -19,9 +19,11 @@ const parseArgs = () => {
     return acc;
   }, []);
 
-  for (const [arg, value] of argsWithValues) {
-    console.log(`${arg.slice(2)} is ${value}`);
-  }
+  console.log(
+    argsWithValues
+      .map(([arg, value]) => `${arg.slice(2)} is ${value}`)
+      .join(", ")
+  );
 };
 
 parseArgs();
