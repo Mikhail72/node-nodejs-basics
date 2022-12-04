@@ -20,7 +20,7 @@ const parseArgs = () => {
   }, []);
 
   for (const [arg, value] of argsWithValues) {
-    console.log(`${arg} ${value}`);
+    console.log(`${arg.slice(2)} is ${value}`);
   }
 };
 
